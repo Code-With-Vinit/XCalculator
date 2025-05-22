@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
 
-  const [answer,setAnswer]=useState(0);
+  const [answer,setAnswer]=useState("");
 
   const handleClick=(e)=>{
       setAnswer(answer+e.target.value);
@@ -14,8 +14,8 @@ function App() {
   const handleEvaluation=()=>{
       // setAnswer(eval(answer));
       try {
-        const sanitized = answer.replace(/^0+/, ''); // remove leading zeros
-        setAnswer(eval(sanitized).toString());
+        // const sanitized = answer.replace(/^0+/, ''); // remove leading zeros
+          setAnswer(eval(answer).toString());
       } catch {
         setAnswer("Error");
       }
