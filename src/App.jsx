@@ -12,7 +12,13 @@ function App() {
       setAnswer("");
   }
   const handleEvaluation=()=>{
-      setAnswer(eval(answer));
+      // setAnswer(eval(answer));
+      try {
+        const sanitized = answer.replace(/^0+/, ''); // remove leading zeros
+        setAnswer(eval(sanitized).toString());
+      } catch {
+        setAnswer("Error");
+      }
   }
  
   return (
